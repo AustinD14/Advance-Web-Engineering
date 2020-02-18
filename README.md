@@ -1,2 +1,1 @@
-# Advance-Web-Engineering
-COMP 584 Assignments
+# COMP-584-Homework-2
