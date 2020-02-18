@@ -1,11 +1,10 @@
 var Employees = [];
 
-
 function addEmployee(){
   'use strict';
   
   var today = new Date();
-  var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  var date = today.toDateString()
   
   var firstname = document.getElementById('firstname').value;
   var lastname = document.getElementById('lastname').value;
@@ -22,11 +21,13 @@ function addEmployee(){
   Employees.push(employee);
   console.log(Employees);
   
-  document.getElementById('outputname').innerHTML ="Name: " + firstname + ' ' + lastname;
+  document.getElementById('outputname').innerHTML ="Name: " + lastname + ", " + firstname;
   document.getElementById('outputdepartment').innerHTML ="Department: " + department;
   document.getElementById('outputemployeeid').innerHTML ="Employee ID: " + employeeID;
   document.getElementById('outputhiredate').innerHTML ="Hire Date: " + date;
-  
+  document.getElementById('outputtotalemployees').innerHTML ="Total Employees: " + Employees.length;
+  document.getElementById('browser').innerHTML ="Browser: " + navigator.appName;
+
   return false;
 }
 
