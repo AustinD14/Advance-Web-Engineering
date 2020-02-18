@@ -5,9 +5,14 @@ body {
     margin: 0 auto;
     padding: 1em;
 }
+
+form {
+  width: 50%;
+  font-family: 'Open Sans'
+}
+
 h1 {    
     margin: 0;
-    padding: .25em;
     font-size: 200%;
     color: Black;
 }
