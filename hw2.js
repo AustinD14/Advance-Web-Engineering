@@ -9,7 +9,8 @@ function addEmployee(){
   var firstname = document.getElementById('firstname').value;
   var lastname = document.getElementById('lastname').value;
   var department = document.getElementById('department').value;
-  var employeeID = Math.floor(Math.random() * 100000000) + 1;
+  var employeeID = uniqueEmployeeID();
+  console.log(employeeID);
   var employee = {
     "firstname": firstname,
     "lastname": lastname,
@@ -18,12 +19,9 @@ function addEmployee(){
     "date": date
   };
 
-
   Employees.push(employee);
   console.log(Employees);
   // console.log(JSON.stringify(Employees));
-
-
   document.getElementById('outputname').innerHTML ="Name: " + lastname + ", " + firstname;
   document.getElementById('outputdepartment').innerHTML ="Department: " + department;
   document.getElementById('outputemployeeid').innerHTML ="Employee ID: " + employeeID;
@@ -34,9 +32,17 @@ function addEmployee(){
   return false;
 }
 
-function currentBrowser(){
+function uniqueEmployeeID(){
+  var employeeID = Math.floor(Math.random() * 100000000) + 1;
+  for (var i = 0; i < Employees.length; i++){
+      if (employeeID == Employees[i].employeeID)
+         employeeID = uniqueEmployeeID();
+  }
+  return employeeID;
+}
+//returns name of the user's browser
+function currentBrowser(){ 
   var sBrowser, sUsrAg = navigator.userAgent;
-
 if (sUsrAg.indexOf("Firefox") > -1) {
   sBrowser = "Mozilla Firefox";
 } else if (sUsrAg.indexOf("SamsungBrowser") > -1) {
@@ -54,7 +60,6 @@ if (sUsrAg.indexOf("Firefox") > -1) {
 } else {
   sBrowser = "unknown";
 }
-
   // alert("You are using: " + sBrowser);
   return sBrowser;
 }
